@@ -46,38 +46,31 @@ namespace TronGame
                 return; // No se mueve si no tiene combustible
             }
 
-            // Verifica si la dirección actual es opuesta a la última dirección
-            if (EsDireccionOpuesta(direccion))
-            {
-                direccion = ultimaDireccion; // Continúa en la última dirección si se intenta mover en la dirección opuesta
-            }
-
             // Calcula la nueva posición de la cabeza de la moto
             Posicion nuevaCabeza = CalcularNuevaPosicion(direccion);
 
-            // Verifica si la nueva posición está dentro de los límites del grid
-            if (nuevaCabeza.X >= 0 && nuevaCabeza.X < gridWidth &&
-                nuevaCabeza.Y >= 0 && nuevaCabeza.Y < gridHeight)
+            // Aquí removemos la lógica que impide que la cabeza salga del grid.
+            // La colisión con la pared debe ser manejada en `MainForm`.
+
+            // Mueve la estela: agrega la posición anterior de la cabeza al inicio de la estela
+            Estela.AddFirst(Cabeza);
+
+            // Elimina el último nodo de la estela si supera el tamaño permitido
+            if (Estela.Count > TamañoEstela)
             {
-                // Mueve la estela: agrega la posición anterior de la cabeza al inicio de la estela
-                Estela.AddFirst(Cabeza);
-
-                // Elimina el último nodo de la estela si supera el tamaño permitido
-                if (Estela.Count > TamañoEstela)
-                {
-                    Estela.RemoveLast();
-                }
-
-                // Actualiza la posición de la cabeza
-                Cabeza = nuevaCabeza;
-
-                // Actualiza la última dirección
-                ultimaDireccion = direccion;
-
-                // Reducir combustible en función de la velocidad y la distancia recorrida
-                ConsumirCombustible();
+                Estela.RemoveLast();
             }
+
+            // Actualiza la posición de la cabeza
+            Cabeza = nuevaCabeza;
+
+            // Actualiza la última dirección
+            ultimaDireccion = direccion;
+
+            // Reducir combustible en función de la velocidad y la distancia recorrida
+            ConsumirCombustible();
         }
+
 
 
         // Método para calcular la nueva posición en función de la dirección

@@ -48,8 +48,7 @@ namespace TronGame
             {
                 movimientoTimer.Stop();
                 MessageBox.Show("La moto ha chocado con una pared y ha muerto.", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // Aquí podrías manejar la lógica de "game over" o reiniciar el juego
-                return;
+                return; // Detener la ejecución del método para evitar más movimientos
             }
 
             // Verificar colisión con la propia estela
@@ -57,9 +56,7 @@ namespace TronGame
             {
                 movimientoTimer.Stop();
                 MessageBox.Show("La moto ha chocado con su propia estela y ha muerto.", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // Aquí podrías manejar la lógica de "game over" o reiniciar el juego
-                Console.WriteLine("kk");
-                return;
+                return; // Detener la ejecución del método para evitar más movimientos
             }
 
             // Mover la moto en la dirección actual
@@ -73,9 +70,11 @@ namespace TronGame
             {
                 movimientoTimer.Stop();
                 MessageBox.Show("La moto se ha quedado sin combustible y ha muerto.", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // Aquí podrías manejar la lógica de "game over" o reiniciar el juego
+                return; // Detener la ejecución del método para evitar más movimientos
             }
         }
+        a
+
 
 
         private void ActualizarGrid()
@@ -115,27 +114,22 @@ namespace TronGame
             switch (keyData)
             {
                 case Keys.Up:
-                    direccionActual = Direccion.Arriba;
+                    if (direccionActual != Direccion.Abajo) direccionActual = Direccion.Arriba;
                     break;
                 case Keys.Down:
-                    direccionActual = Direccion.Abajo;
+                    if (direccionActual != Direccion.Arriba) direccionActual = Direccion.Abajo;
                     break;
                 case Keys.Left:
-                    direccionActual = Direccion.Izquierda;
+                    if (direccionActual != Direccion.Derecha) direccionActual = Direccion.Izquierda;
                     break;
                 case Keys.Right:
-                    direccionActual = Direccion.Derecha;
+                    if (direccionActual != Direccion.Izquierda) direccionActual = Direccion.Derecha;
                     break;
             }
 
-            // Mover la moto en la dirección actual
-            moto.Mover(direccionActual);
-
-            // Actualizar el grid para reflejar el movimiento
-            ActualizarGrid();
-
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
 
     }
 }
