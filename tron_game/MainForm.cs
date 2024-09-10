@@ -16,6 +16,7 @@ namespace TronGame
         private Moto moto;
         private Direccion direccionActual;
         private Colisiones colisiones;
+        private List<Moto> motos;
 
         public MainForm()
         {
@@ -25,15 +26,25 @@ namespace TronGame
 
         private void IniciarJuego()
         {
-            // Inicializar la moto con el tamaño del grid
+            // Inicializar la lista de motos
+            motos = new List<Moto>();
+
+            // Crear la moto del jugador
             int gridWidth = gridButtons.GetLength(0);
             int gridHeight = gridButtons.GetLength(1);
-            moto = new Moto(velocidadInicial: 5, combustibleInicial: 200, tamañoEstelaInicial: 7, gridWidth, gridHeight);
+            Moto jugadorMoto = new Moto(velocidadInicial: 5, combustibleInicial: 200, tamañoEstelaInicial: 7, gridWidth, gridHeight);
+            motos.Add(jugadorMoto);
+
+            // Crear una o más motos controladas por bots (puedes ajustar esto según tu juego)
+            Moto botMoto = new Moto(velocidadInicial: 5, combustibleInicial: 200, tamañoEstelaInicial: 7, gridWidth, gridHeight);
+            botMoto.EstablecerPosicionCabeza(gridWidth - 1, gridHeight - 1);
+            motos.Add(botMoto);
+
             colisiones = new Colisiones(gridWidth, gridHeight);
             direccionActual = Direccion.Derecha;
 
             // Ajustar el intervalo del temporizador según la velocidad de la moto
-            movimientoTimer.Interval = 1000 / moto.Velocidad;
+            movimientoTimer.Interval = 1000 / jugadorMoto.Velocidad;
             movimientoTimer.Start();
 
             // Pintar la moto en el grid inicialmente
@@ -43,37 +54,57 @@ namespace TronGame
 
         private void movimientoTimer_Tick(object sender, EventArgs e)
         {
-            // Verificar colisión con pared
-            if (colisiones.VerificarColisionPared(moto.Cabeza))
+            foreach (var moto in motos.ToList())  // Usar ToList para evitar problemas al modificar la lista durante la iteración
             {
-                movimientoTimer.Stop();
-                MessageBox.Show("La moto ha chocado con una pared y ha muerto.", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return; // Detener la ejecución del método para evitar más movimientos
-            }
+                // Verificar colisión con pared
+                if (colisiones.VerificarColisionPared(moto.Cabeza))
+                {
+                    movimientoTimer.Stop();
+                    MessageBox.Show("Una moto ha chocado con una pared y ha muerto.", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    motos.Remove(moto);  // Eliminar la moto que ha muerto
+                    return;
+                }
 
-            // Verificar colisión con la propia estela
-            if (colisiones.VerificarColisionEstela(moto.Cabeza, moto.Estela))
-            {
-                movimientoTimer.Stop();
-                MessageBox.Show("La moto ha chocado con su propia estela y ha muerto.", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return; // Detener la ejecución del método para evitar más movimientos
-            }
+                // Verificar colisión con la propia estela
+                if (colisiones.VerificarColisionEstela(moto.Cabeza, moto.Estela))
+                {
+                    movimientoTimer.Stop();
+                    MessageBox.Show("Una moto ha chocado con su propia estela y ha muerto.", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    motos.Remove(moto);  // Eliminar la moto que ha muerto
+                    return;
+                }
 
-            // Mover la moto en la dirección actual
-            moto.Mover(direccionActual);
+                // Verificar colisión con otras motos
+                foreach (var otraMoto in motos)
+                {
+                    if (otraMoto != moto && colisiones.VerificarColisionEstela(moto.Cabeza, otraMoto.Estela))
+                    {
+                        movimientoTimer.Stop();
+                        MessageBox.Show("Una moto ha chocado con otra moto y ha muerto.", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        motos.Remove(moto);  // Eliminar la moto que ha muerto
+                        motos.Remove(otraMoto);  // También eliminar la otra moto si la colisión es fatal para ambas
+                        return;
+                    }
+                }
 
-            // Actualizar el grid para reflejar el movimiento
-            ActualizarGrid();
+                // Mover la moto en la dirección actual
+                moto.Mover(direccionActual);
 
-            // Verificar si la moto se ha quedado sin combustible
-            if (moto.Combustible <= 0)
-            {
-                movimientoTimer.Stop();
-                MessageBox.Show("La moto se ha quedado sin combustible y ha muerto.", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return; // Detener la ejecución del método para evitar más movimientos
+                // Actualizar el grid para reflejar el movimiento
+                ActualizarGrid();
+
+                // Verificar si la moto se ha quedado sin combustible
+                if (moto.Combustible <= 0)
+                {
+                    movimientoTimer.Stop();
+                    MessageBox.Show("Una moto se ha quedado sin combustible y ha muerto.", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    motos.Remove(moto);  // Eliminar la moto que ha muerto
+                    return;
+                }
             }
         }
-        a
+
+
 
 
 

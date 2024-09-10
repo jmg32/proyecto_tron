@@ -8,3 +8,13 @@ C:\Users\Invitado1\Documents\GitHub\datos1_tarea1\tron_game\tron_game\bin\Debug\
 C:\Users\Invitado1\Documents\GitHub\datos1_tarea1\tron_game\tron_game\bin\Debug\tron_game.pdb
 C:\Users\Invitado1\Documents\GitHub\datos1_tarea1\tron_game\tron_game\obj\Debug\tron_game.exe
 C:\Users\Invitado1\Documents\GitHub\datos1_tarea1\tron_game\tron_game\obj\Debug\tron_game.pdb
+C:\Users\Invitado1\Documents\GitHub\proyecto_tron\tron_game\bin\Debug\tron_game.exe.config
+C:\Users\Invitado1\Documents\GitHub\proyecto_tron\tron_game\bin\Debug\tron_game.exe
+C:\Users\Invitado1\Documents\GitHub\proyecto_tron\tron_game\bin\Debug\tron_game.pdb
+C:\Users\Invitado1\Documents\GitHub\proyecto_tron\tron_game\obj\Debug\tron_game.csproj.AssemblyReference.cache
+C:\Users\Invitado1\Documents\GitHub\proyecto_tron\tron_game\obj\Debug\TronGame.MainForm.resources
+C:\Users\Invitado1\Documents\GitHub\proyecto_tron\tron_game\obj\Debug\tron_game.Properties.Resources.resources
+C:\Users\Invitado1\Documents\GitHub\proyecto_tron\tron_game\obj\Debug\tron_game.csproj.GenerateResource.cache
+C:\Users\Invitado1\Documents\GitHub\proyecto_tron\tron_game\obj\Debug\tron_game.csproj.CoreCompileInputs.cache
+C:\Users\Invitado1\Documents\GitHub\proyecto_tron\tron_game\obj\Debug\tron_game.exe
+C:\Users\Invitado1\Documents\GitHub\proyecto_tron\tron_game\obj\Debug\tron_game.pdb

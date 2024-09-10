@@ -96,6 +96,11 @@ namespace TronGame
 
             return nuevaPosicion;
         }
+        public void EstablecerPosicionCabeza(int x, int y)
+        {
+            Cabeza = new Posicion(x, y);
+        }
+
 
         // Método para verificar si la nueva dirección es opuesta a la última dirección
         private bool EsDireccionOpuesta(Direccion nuevaDireccion)
@@ -116,6 +121,8 @@ namespace TronGame
             }
         }
     }
+    
+
 
 
     // Clase para representar posiciones en el grid
