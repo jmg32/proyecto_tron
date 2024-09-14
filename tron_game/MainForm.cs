@@ -10,10 +10,11 @@ namespace TronGame
         private Mapa mapa;
         private Moto jugadorMoto;
         private Direccion direccionActual;
-        private int gridAncho = 20;  // Puedes ajustar el tamaño del grid
+        private int gridAncho = 20;
         private int gridAlto = 20;
-        private Nodo[,] gridBotones;  // Botones asociados a los nodos para visualización
-        private const int tamanioCelda = 30;  // Tamaño visual de cada celda en el grid
+        private Nodo[,] gridBotones;
+        private const int tamanioCelda = 30;
+        private Colisiones colisiones;  // Declarar la variable colisiones
 
         public MainForm()
         {
@@ -29,6 +30,9 @@ namespace TronGame
             // Inicializar la moto del jugador en un nodo específico del mapa
             jugadorMoto = new Moto(mapa.ObtenerNodo(0, 0), velocidadInicial: 5, combustibleInicial: 200, tamañoEstelaInicial: 7);
 
+            // Inicializar colisiones con el tamaño del grid
+            colisiones = new Colisiones(gridAncho, gridAlto);  // Inicializa colisiones
+
             // Crear visualización del grid con botones
             CrearVisualizacionGrid();
 
@@ -39,6 +43,7 @@ namespace TronGame
             movimientoTimer.Interval = 1000 / jugadorMoto.Velocidad;
             movimientoTimer.Start();
         }
+
 
         // Crear el grid de botones para representar los nodos visualmente
         private void CrearVisualizacionGrid()
@@ -89,6 +94,24 @@ namespace TronGame
         // Lógica del temporizador para mover la moto
         private void movimientoTimer_Tick(object sender, EventArgs e)
         {
+            Nodo nuevoNodo = ObtenerNuevoNodo(jugadorMoto.Cabeza, direccionActual);  // Obtener el nodo adyacente basado en la dirección
+
+            // Verificar colisión con pared
+            if (colisiones.VerificarColisionPared(nuevoNodo))
+            {
+                movimientoTimer.Stop();
+                MessageBox.Show("La moto ha chocado con una pared y ha muerto.", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return; // Detener el juego
+            }
+
+            // Verificar colisión con la estela
+            if (colisiones.VerificarColisionEstela(nuevoNodo))
+            {
+                movimientoTimer.Stop();
+                MessageBox.Show("La moto ha chocado con su propia estela o una estela enemiga y ha muerto.", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return; // Detener el juego
+            }
+
             // Mover la moto en la dirección actual
             jugadorMoto.Mover(direccionActual);
 
@@ -100,8 +123,28 @@ namespace TronGame
             {
                 movimientoTimer.Stop();
                 MessageBox.Show("La moto se ha quedado sin combustible y ha muerto.", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return; // Detener el juego
             }
         }
+
+        // Método para obtener el nodo adyacente basado en la dirección actual
+        private Nodo ObtenerNuevoNodo(Nodo nodoActual, Direccion direccion)
+        {
+            switch (direccion)
+            {
+                case Direccion.Arriba:
+                    return nodoActual.NodoArriba;
+                case Direccion.Abajo:
+                    return nodoActual.NodoAbajo;
+                case Direccion.Izquierda:
+                    return nodoActual.NodoIzquierda;
+                case Direccion.Derecha:
+                    return nodoActual.NodoDerecha;
+                default:
+                    return null;
+            }
+        }
+
 
         // Control de las teclas para mover la moto
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

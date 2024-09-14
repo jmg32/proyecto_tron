@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using tron_game;
 
 namespace TronGame
 {
@@ -17,26 +18,32 @@ namespace TronGame
             this.gridHeight = gridHeight;
         }
 
-        // Verificar colisión con los límites del grid
-        public bool VerificarColisionPared(Posicion cabeza)
+        // Verificar colisión con los bordes del grid (paredes)
+        public bool VerificarColisionPared(Nodo nodo)
         {
-            return cabeza.X < 0 || cabeza.X >= gridWidth || cabeza.Y < 0 || cabeza.Y >= gridHeight;
+            return nodo == null;  // Si el nodo es null, significa que ha intentado salir del grid
         }
 
-        // Verificar colisión con una estela
-        public bool VerificarColisionEstela(Posicion cabeza, LinkedList<Posicion> estela)
+        // Verificar colisión con la estela (o cualquier nodo ocupado)
+        public bool VerificarColisionEstela(Nodo nodo)
         {
-            foreach (var posicion in estela)
+            return nodo != null && nodo.Ocupado;  // Si el nodo no es null y está ocupado, es una colisión
+        }
+
+        // Verificar colisión con otra moto
+        public bool VerificarColisionConOtraMoto(Nodo nodo, List<Moto> otrasMotos)
+        {
+            foreach (var otraMoto in otrasMotos)
             {
-                if (posicion.X == cabeza.X && posicion.Y == cabeza.Y)
+                if (otraMoto.Cabeza == nodo)  // Si la cabeza de otra moto está en el mismo nodo
                 {
-                    return true;
+                    return true;  // Colisión con otra moto
                 }
             }
             return false;
         }
-
-        // Aquí podrías agregar más métodos para verificar colisiones con otras motos o ítems
     }
+
 }
+
 
