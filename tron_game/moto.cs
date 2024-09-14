@@ -3,112 +3,76 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using tron_game;
 
 namespace TronGame
 {
+    using System.Collections.Generic;
+
     public class Moto
     {
-        // Atributos
-        public int Velocidad { get; private set; }
-        public int Combustible { get; private set; }
-        public LinkedList<Posicion> Estela { get; private set; }
-        public Posicion Cabeza { get; private set; }
-        public int TamañoEstela { get; private set; }
-        private int gridWidth;
-        private int gridHeight;
-        private Direccion ultimaDireccion; // Nueva variable para guardar la última dirección
+        public Nodo Cabeza { get; private set; }          // Nodo actual donde está la cabeza de la moto
+        public LinkedList<Nodo> Estela { get; private set; } // Lista enlazada para representar la estela
+        public int Velocidad { get; private set; }        // Velocidad de la moto
+        public int Combustible { get; private set; }      // Cantidad de combustible restante
+        public int TamañoEstela { get; private set; }     // Tamaño máximo de la estela
 
         // Constructor
-        public Moto(int velocidadInicial, int combustibleInicial, int tamañoEstelaInicial, int gridWidth, int gridHeight)
+        public Moto(Nodo nodoInicial, int velocidadInicial, int combustibleInicial, int tamañoEstelaInicial)
         {
+            Cabeza = nodoInicial;  // Posición inicial de la moto
             Velocidad = velocidadInicial;
             Combustible = combustibleInicial;
             TamañoEstela = tamañoEstelaInicial;
-            Estela = new LinkedList<Posicion>();
+            Estela = new LinkedList<Nodo>();
 
-            // Guardar el tamaño del grid
-            this.gridWidth = gridWidth;
-            this.gridHeight = gridHeight;
-
-            // Inicializa la cabeza y la estela
-            Cabeza = new Posicion(0, 0); // Cabeza en la posición inicial (0,0)
-            ultimaDireccion = Direccion.Derecha; // Inicializa la última dirección
-            for (int i = 1; i <= TamañoEstela; i++)
-            {
-                Estela.AddLast(new Posicion(0, -i)); // Estela detrás de la cabeza
-            }
+            // Marcar el nodo inicial como ocupado
+            Cabeza.Ocupado = true;
         }
 
+        // Método para mover la moto en una dirección específica
         public void Mover(Direccion direccion)
         {
-            if (Combustible <= 0)
-            {
-                return; // No se mueve si no tiene combustible
-            }
+            Nodo nuevoNodo = null;
 
-            // Calcula la nueva posición de la cabeza de la moto
-            Posicion nuevaCabeza = CalcularNuevaPosicion(direccion);
-
-            // Aquí removemos la lógica que impide que la cabeza salga del grid.
-            // La colisión con la pared debe ser manejada en `MainForm`.
-
-            // Mueve la estela: agrega la posición anterior de la cabeza al inicio de la estela
-            Estela.AddFirst(Cabeza);
-
-            // Elimina el último nodo de la estela si supera el tamaño permitido
-            if (Estela.Count > TamañoEstela)
-            {
-                Estela.RemoveLast();
-            }
-
-            // Actualiza la posición de la cabeza
-            Cabeza = nuevaCabeza;
-
-            // Actualiza la última dirección
-            ultimaDireccion = direccion;
-
-            // Reducir combustible en función de la velocidad y la distancia recorrida
-            ConsumirCombustible();
-        }
-
-
-
-        // Método para calcular la nueva posición en función de la dirección
-        private Posicion CalcularNuevaPosicion(Direccion direccion)
-        {
-            Posicion nuevaPosicion = null;
-
+            // Determinar el nuevo nodo basándose en la dirección
             switch (direccion)
             {
                 case Direccion.Arriba:
-                    nuevaPosicion = new Posicion(Cabeza.X, Cabeza.Y - 1);
+                    nuevoNodo = Cabeza.NodoArriba;
                     break;
                 case Direccion.Abajo:
-                    nuevaPosicion = new Posicion(Cabeza.X, Cabeza.Y + 1);
+                    nuevoNodo = Cabeza.NodoAbajo;
                     break;
                 case Direccion.Izquierda:
-                    nuevaPosicion = new Posicion(Cabeza.X - 1, Cabeza.Y);
+                    nuevoNodo = Cabeza.NodoIzquierda;
                     break;
                 case Direccion.Derecha:
-                    nuevaPosicion = new Posicion(Cabeza.X + 1, Cabeza.Y);
+                    nuevoNodo = Cabeza.NodoDerecha;
                     break;
             }
 
-            return nuevaPosicion;
-        }
-        public void EstablecerPosicionCabeza(int x, int y)
-        {
-            Cabeza = new Posicion(x, y);
-        }
+            // Solo se mueve si el nuevo nodo no está ocupado y es válido (no es null)
+            if (nuevoNodo != null && !nuevoNodo.Ocupado)
+            {
+                // Mover la estela
+                Estela.AddFirst(Cabeza);  // Agregar el nodo actual al inicio de la estela
 
+                // Limitar la longitud de la estela
+                if (Estela.Count > TamañoEstela)
+                {
+                    Nodo ultimo = Estela.Last.Value;
+                    Estela.RemoveLast();  // Quitar el último nodo de la estela
+                    ultimo.Ocupado = false;  // Marcar el último nodo como libre
+                }
 
-        // Método para verificar si la nueva dirección es opuesta a la última dirección
-        private bool EsDireccionOpuesta(Direccion nuevaDireccion)
-        {
-            return (ultimaDireccion == Direccion.Arriba && nuevaDireccion == Direccion.Abajo) ||
-                   (ultimaDireccion == Direccion.Abajo && nuevaDireccion == Direccion.Arriba) ||
-                   (ultimaDireccion == Direccion.Izquierda && nuevaDireccion == Direccion.Derecha) ||
-                   (ultimaDireccion == Direccion.Derecha && nuevaDireccion == Direccion.Izquierda);
+                // Actualizar la posición de la cabeza de la moto
+                Cabeza = nuevoNodo;
+                Cabeza.Ocupado = true;  // Marcar el nuevo nodo como ocupado
+            }
+
+            // Reducir combustible
+            ConsumirCombustible();
         }
 
         // Método para consumir combustible
@@ -117,11 +81,12 @@ namespace TronGame
             Combustible -= Velocidad;
             if (Combustible < 0)
             {
-                Combustible = 0; // Evitar valores negativos
+                Combustible = 0; // Asegurarse de que el combustible no sea negativo
             }
         }
     }
-    
+
+
 
 
 

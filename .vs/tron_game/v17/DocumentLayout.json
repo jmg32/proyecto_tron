@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|c:\\users\\invitado1\\documents\\github\\proyecto_tron\\tron_game\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|solutionrelative:tron_game\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\moto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|solutionrelative:tron_game\\moto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,10 +15,16 @@
       "RelativeMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|solutionrelative:tron_game\\colisiones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|tron_game||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|c:\\users\\invitado1\\documents\\github\\proyecto_tron\\tron_game\\moto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|solutionrelative:tron_game\\moto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|c:\\users\\invitado1\\documents\\github\\proyecto_tron\\tron_game\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|6185191f-1008-4fb2-a715-3a4e4f27e610"
+      "AbsoluteMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\mapa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|solutionrelative:tron_game\\mapa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\nodo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|solutionrelative:tron_game\\nodo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -32,21 +34,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "tron_game",
-              "DocumentMoniker": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\tron_game.csproj",
-              "RelativeDocumentMoniker": "tron_game\\tron_game.csproj",
-              "ToolTip": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\tron_game.csproj",
-              "RelativeToolTip": "tron_game\\tron_game.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-09-03T20:02:16.991Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -57,7 +46,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
+              "Title": "Mapa.cs",
+              "DocumentMoniker": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\Mapa.cs",
+              "RelativeDocumentMoniker": "tron_game\\Mapa.cs",
+              "ToolTip": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\Mapa.cs",
+              "RelativeToolTip": "tron_game\\Mapa.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T05:25:40.134Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Nodo.cs",
+              "DocumentMoniker": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\Nodo.cs",
+              "RelativeDocumentMoniker": "tron_game\\Nodo.cs",
+              "ToolTip": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\Nodo.cs",
+              "RelativeToolTip": "tron_game\\Nodo.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAkwB0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T05:24:14.318Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "colisiones.cs",
               "DocumentMoniker": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\colisiones.cs",
               "RelativeDocumentMoniker": "tron_game\\colisiones.cs",
@@ -70,26 +83,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "moto.cs",
               "DocumentMoniker": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\moto.cs",
               "RelativeDocumentMoniker": "tron_game\\moto.cs",
               "ToolTip": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\moto.cs",
               "RelativeToolTip": "tron_game\\moto.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAswCMAAAAzAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-02T20:08:22.828Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "MainForm.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\MainForm.Designer.cs",
               "RelativeDocumentMoniker": "tron_game\\MainForm.Designer.cs",
               "ToolTip": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\MainForm.Designer.cs",
               "RelativeToolTip": "tron_game\\MainForm.Designer.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAYwAcAAAA7AAAA",
+              "ViewState": "AQIAACoAAAAAAAAAAAAYwAcAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-31T10:43:57.484Z",
               "EditorCaption": ""
@@ -102,7 +115,7 @@
               "RelativeDocumentMoniker": "tron_game\\MainForm.cs",
               "ToolTip": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\MainForm.cs",
               "RelativeToolTip": "tron_game\\MainForm.cs",
-              "ViewState": "AQIAAG4AAAAAAAAAAAAgwHoAAAAlAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAIAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-31T10:44:17.231Z",
               "EditorCaption": ""
