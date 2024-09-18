@@ -30,7 +30,7 @@ namespace TronGame
         {
             this.SuspendLayout();
             this.movimientoTimer = new System.Windows.Forms.Timer();
-            this.SuspendLayout();
+            
             // 
             // movimientoTimer
             // 

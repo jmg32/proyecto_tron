@@ -25,10 +25,19 @@ namespace TronGame
         }
 
         // Verificar colisión con la estela (o cualquier nodo ocupado)
-        public bool VerificarColisionEstela(Nodo nodo)
+        public bool VerificarColisionEstela(Nodo nodo, List<Item> items)
         {
-            return nodo != null && nodo.Ocupado;  // Si el nodo no es null y está ocupado, es una colisión
+            // Si el nodo está ocupado por un ítem, no cuenta como colisión
+            if (items.Any(item => item.Posicion == nodo))
+            {
+                return false;
+            }
+
+            // Verificar si el nodo está ocupado por la estela o cualquier otra cosa
+            return nodo != null && nodo.Ocupado;
         }
+
+
 
         // Verificar colisión con otra moto
         public bool VerificarColisionConOtraMoto(Nodo nodo, List<Moto> otrasMotos)

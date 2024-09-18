@@ -14,8 +14,8 @@ namespace TronGame
         public Nodo Cabeza { get; private set; }          // Nodo actual donde está la cabeza de la moto
         public LinkedList<Nodo> Estela { get; private set; } // Lista enlazada para representar la estela
         public int Velocidad { get; private set; }        // Velocidad de la moto
-        public int Combustible { get; private set; }      // Cantidad de combustible restante
-        public int TamañoEstela { get; private set; }     // Tamaño máximo de la estela
+        public int Combustible { get;  set; }      // Cantidad de combustible restante
+        public int TamañoEstela { get;  set; }     // Tamaño máximo de la estela
 
         // Constructor
         public Moto(Nodo nodoInicial, int velocidadInicial, int combustibleInicial, int tamañoEstelaInicial)
@@ -31,7 +31,7 @@ namespace TronGame
         }
 
         // Método para mover la moto en una dirección específica
-        public void Mover(Direccion direccion)
+        public void Mover(Direccion direccion, List<Item> items)
         {
             Nodo nuevoNodo = null;
 
@@ -52,10 +52,15 @@ namespace TronGame
                     break;
             }
 
-            // Solo se mueve si el nuevo nodo no está ocupado y es válido (no es null)
-            if (nuevoNodo != null && !nuevoNodo.Ocupado)
+            // Verificar si el nodo está ocupado por un ítem
+            bool nodoOcupadoPorItem = items.Any(item => item.Posicion == nuevoNodo);
+
+            // Permitir que la moto avance si el nodo no está ocupado por una estela o si está ocupado por un ítem
+            if (nuevoNodo != null && (!nuevoNodo.Ocupado || nodoOcupadoPorItem))
             {
-                // Mover la estela
+                Console.WriteLine($"Moto moviéndose a [{nuevoNodo.X}, {nuevoNodo.Y}]");
+
+                // Mueve la estela
                 Estela.AddFirst(Cabeza);  // Agregar el nodo actual al inicio de la estela
 
                 // Limitar la longitud de la estela
@@ -68,22 +73,38 @@ namespace TronGame
 
                 // Actualizar la posición de la cabeza de la moto
                 Cabeza = nuevoNodo;
-                Cabeza.Ocupado = true;  // Marcar el nuevo nodo como ocupado
+
+                // Si el nodo no está ocupado por un ítem, marcarlo como ocupado
+                if (!nodoOcupadoPorItem)
+                {
+                    Cabeza.Ocupado = true;  // Marcar el nuevo nodo como ocupado
+                }
+
+                // Reducir el combustible cada vez que la moto se mueve
+                ConsumirCombustible();
             }
-
-            // Reducir combustible
-            ConsumirCombustible();
-        }
-
-        // Método para consumir combustible
-        private void ConsumirCombustible()
-        {
-            Combustible -= Velocidad;
-            if (Combustible < 0)
+            else
             {
-                Combustible = 0; // Asegurarse de que el combustible no sea negativo
+                Console.WriteLine($"No se puede mover a [{nuevoNodo?.X}, {nuevoNodo?.Y}] porque está ocupado por una estela o no es válido.");
             }
         }
+
+        public void ConsumirCombustible()
+        {
+            if (Combustible > 0)
+            {
+                Combustible--;  // Reducir el combustible en cada movimiento
+                Console.WriteLine($"Combustible restante: {Combustible}");
+
+                // Si el combustible llega a cero, detener la moto
+                if (Combustible == 0)
+                {
+                    Console.WriteLine("La moto se ha quedado sin combustible.");
+                }
+            }
+        }
+
+
     }
 
 

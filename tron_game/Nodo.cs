@@ -18,12 +18,16 @@ namespace tron_game
 
         public bool Ocupado { get; set; }  // Indica si una moto o estela está ocupando el nodo
 
+        public Item Item { get; set; }  // Nueva propiedad para almacenar un ítem en el nodo
+
         public Nodo(int x, int y)
         {
             X = x;
             Y = y;
             Ocupado = false;
+            Item = null;  // Inicializamos el ítem en null
         }
     }
+
 
 }
