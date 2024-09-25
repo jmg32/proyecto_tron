@@ -28,13 +28,13 @@ namespace TronGame
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.movimientoTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
-            this.movimientoTimer = new System.Windows.Forms.Timer();
-            
             // 
             // movimientoTimer
             // 
-            this.movimientoTimer.Interval = 1000; // El intervalo depende de la velocidad de la moto
+            this.movimientoTimer.Interval = 1000;
             this.movimientoTimer.Tick += new System.EventHandler(this.movimientoTimer_Tick);
             // 
             // MainForm
@@ -42,10 +42,9 @@ namespace TronGame
             this.ClientSize = new System.Drawing.Size(800, 800);
             this.Name = "MainForm";
             this.Text = "Tron Game";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 
-            // Inicializar el grid
-            InitializeGrid();
         }
 
         private void InitializeGrid()

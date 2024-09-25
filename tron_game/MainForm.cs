@@ -102,12 +102,10 @@ namespace TronGame
                 // Verificar si la cabeza de la moto está en la misma posición que algún ítem
                 if (jugadorMoto.Cabeza == itemColisionado.Posicion)
                 {
-                    Console.WriteLine($"Ítem detectado en el nodo [{itemColisionado.Posicion.X}, {itemColisionado.Posicion.Y}]");
 
                     // Primero, remover el ítem del nodo
                     itemColisionado.Remover();  // Liberar el nodo del ítem
                     colaDeItems.Desencolar();  // Eliminar el ítem de la cola
-                    Console.WriteLine($"Ítem removido. Nodo liberado [{itemColisionado.Posicion.X}, {itemColisionado.Posicion.Y}]");
 
                     // Ahora aplicar el efecto del ítem
                     itemColisionado.AplicarEfecto(jugadorMoto);
@@ -248,14 +246,6 @@ namespace TronGame
 
 
 
-
-
-
-
-
-
-
-
         // Método para obtener el nodo adyacente basado en la dirección actual
         private Nodo ObtenerNuevoNodo(Nodo nodoActual, Direccion direccion)
         {
@@ -295,6 +285,11 @@ namespace TronGame
             }
 
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

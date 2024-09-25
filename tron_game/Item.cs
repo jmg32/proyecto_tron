@@ -76,9 +76,8 @@ public class Bomba : Item
 
     public override void AplicarEfecto(Moto moto)
     {
-        // La bomba causa una explosión y "mata" a la moto al vaciar el combustible
+        // La bomba causa una explosión y destruye la moto al vaciar el combustible
         moto.Combustible = 0;  // Simulamos la muerte vaciando el combustible
-        Console.WriteLine("La bomba ha explotado. Combustible de la moto: 0");
     }
 }
 

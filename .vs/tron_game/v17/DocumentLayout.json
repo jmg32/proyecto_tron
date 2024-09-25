@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|c:\\users\\invitado1\\documents\\github\\proyecto_tron\\tron_game\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|solutionrelative:tron_game\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|c:\\users\\invitado1\\documents\\github\\proyecto_tron\\tron_game\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|solutionrelative:tron_game\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|c:\\users\\invitado1\\documents\\github\\proyecto_tron\\tron_game\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|solutionrelative:tron_game\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|c:\\users\\invitado1\\documents\\github\\proyecto_tron\\tron_game\\coladeitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|solutionrelative:tron_game\\coladeitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|c:\\users\\invitado1\\documents\\github\\proyecto_tron\\tron_game\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|solutionrelative:tron_game\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\colisiones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|solutionrelative:tron_game\\colisiones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|c:\\users\\invitado1\\documents\\github\\proyecto_tron\\tron_game\\moto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|solutionrelative:tron_game\\moto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\mapa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|solutionrelative:tron_game\\mapa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\nodo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|solutionrelative:tron_game\\nodo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|c:\\users\\invitado1\\documents\\github\\proyecto_tron\\tron_game\\mainform.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "RelativeMoniker": "D:0:0:{1767FB1D-CD58-4C34-8D90-36917BDF6D28}|tron_game\\tron_game.csproj|solutionrelative:tron_game\\mainform.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,65 +46,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Mapa.cs",
-              "DocumentMoniker": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\Mapa.cs",
-              "RelativeDocumentMoniker": "tron_game\\Mapa.cs",
-              "ToolTip": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\Mapa.cs",
-              "RelativeToolTip": "tron_game\\Mapa.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T05:25:40.134Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Nodo.cs",
-              "DocumentMoniker": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\Nodo.cs",
-              "RelativeDocumentMoniker": "tron_game\\Nodo.cs",
-              "ToolTip": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\Nodo.cs",
-              "RelativeToolTip": "tron_game\\Nodo.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAkwB0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T05:24:14.318Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "colisiones.cs",
-              "DocumentMoniker": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\colisiones.cs",
-              "RelativeDocumentMoniker": "tron_game\\colisiones.cs",
-              "ToolTip": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\colisiones.cs",
-              "RelativeToolTip": "tron_game\\colisiones.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAQwCQAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T19:04:04.18Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "moto.cs",
-              "DocumentMoniker": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\moto.cs",
-              "RelativeDocumentMoniker": "tron_game\\moto.cs",
-              "ToolTip": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\moto.cs",
-              "RelativeToolTip": "tron_game\\moto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAAAAAAA",
+              "Title": "ColaDeItems.cs",
+              "DocumentMoniker": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\ColaDeItems.cs",
+              "RelativeDocumentMoniker": "tron_game\\ColaDeItems.cs",
+              "ToolTip": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\ColaDeItems.cs",
+              "RelativeToolTip": "tron_game\\ColaDeItems.cs",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAgwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-02T20:08:22.828Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainForm.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\MainForm.Designer.cs",
-              "RelativeDocumentMoniker": "tron_game\\MainForm.Designer.cs",
-              "ToolTip": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\MainForm.Designer.cs",
-              "RelativeToolTip": "tron_game\\MainForm.Designer.cs",
-              "ViewState": "AQIAACoAAAAAAAAAAAAYwAcAAAA7AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-31T10:43:57.484Z",
+              "WhenOpened": "2024-09-25T08:04:18.678Z",
               "EditorCaption": ""
             },
             {
@@ -115,9 +65,59 @@
               "RelativeDocumentMoniker": "tron_game\\MainForm.cs",
               "ToolTip": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\MainForm.cs",
               "RelativeToolTip": "tron_game\\MainForm.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAIAAAAAAAAAA",
+              "ViewState": "AQIAAHUAAAAAAAAAAAAowPYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-31T10:44:17.231Z",
+              "WhenOpened": "2024-09-25T08:01:19.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainForm.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\MainForm.cs",
+              "RelativeDocumentMoniker": "tron_game\\MainForm.cs",
+              "ToolTip": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\MainForm.cs [Dise\u00F1o]",
+              "RelativeToolTip": "tron_game\\MainForm.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T08:01:07.881Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\MainForm.Designer.cs",
+              "RelativeDocumentMoniker": "tron_game\\MainForm.Designer.cs",
+              "ToolTip": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\MainForm.Designer.cs",
+              "RelativeToolTip": "tron_game\\MainForm.Designer.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAYwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T08:00:47.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainForm.resx",
+              "DocumentMoniker": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\MainForm.resx",
+              "RelativeDocumentMoniker": "tron_game\\MainForm.resx",
+              "ToolTip": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\MainForm.resx",
+              "RelativeToolTip": "tron_game\\MainForm.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-09-25T08:00:43.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Item.cs",
+              "DocumentMoniker": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\Item.cs",
+              "RelativeDocumentMoniker": "tron_game\\Item.cs",
+              "ToolTip": "C:\\Users\\Invitado1\\Documents\\GitHub\\proyecto_tron\\tron_game\\Item.cs",
+              "RelativeToolTip": "tron_game\\Item.cs",
+              "ViewState": "AQIAADsAAAAAAAAAAAAUwFAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-25T07:59:59.943Z",
               "EditorCaption": ""
             }
           ]
