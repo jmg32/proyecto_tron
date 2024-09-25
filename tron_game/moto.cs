@@ -104,6 +104,24 @@ namespace TronGame
             }
         }
 
+        public void VerificarColisionConItems(List<Item> items, ColaDeItems colaDeItems)
+        {
+            foreach (var item in items)
+            {
+                if (Cabeza == item.Posicion)
+                {
+                    item.AplicarEfecto(this);  // Aplicar el efecto del ítem a la moto
+
+                    // Remover el ítem del nodo y de la cola
+                    item.Remover();  // Liberar el nodo del ítem
+                    colaDeItems.Desencolar();  // Eliminar el ítem de la cola
+
+                    // Ya no llamamos a ActualizarVisualizacionGrid() aquí
+                    break;  // Salir del bucle después de recoger un ítem
+                }
+            }
+        }
+
 
     }
 

@@ -14,6 +14,7 @@ namespace TronGame
         private int gridAncho = 20;
         private int gridAlto = 20;
         private Nodo[,] gridBotones;
+        private List<Bot> bots;  // Lista de bots
         private const int tamanioCelda = 30;
         private Colisiones colisiones;  // Declarar la variable colisiones
         private ColaDeItems colaDeItems;  // Usar la nueva clase ColaDeItem
@@ -32,6 +33,21 @@ namespace TronGame
             mapa = new Mapa(gridAncho, gridAlto);
             jugadorMoto = new Moto(mapa.ObtenerNodo(0, 0), velocidadInicial: 5, combustibleInicial: 500, tamañoEstelaInicial: 1);
             colisiones = new Colisiones(gridAncho, gridAlto);
+
+            // Inicializar bots
+            bots = new List<Bot>();
+            for (int i = 0; i < 3; i++)  // Puedes ajustar el número de bots
+            {
+                // Generar una posición inicial aleatoria para cada bot
+                Nodo posicionInicial = mapa.ObtenerNodo(random.Next(0, gridAncho), random.Next(0, gridAlto));
+
+                // Crear el bot con el generador `Random` global
+                Bot nuevoBot = new Bot(posicionInicial, velocidadInicial: 5, combustibleInicial: 300, tamañoEstelaInicial: 1, mapa, random);
+
+                // Agregar el bot a la lista de bots
+                bots.Add(nuevoBot);
+            }
+
 
             // Inicializar la nueva cola de ítems
             colaDeItems = new ColaDeItems();
@@ -151,47 +167,53 @@ namespace TronGame
                 for (int y = 0; y < gridAlto; y++)
                 {
                     Nodo nodo = mapa.ObtenerNodo(x, y);
-                    Button btn = (Button)this.Controls[x * gridAlto + y];  // Obtener el botón visual asociado
+                    Button btn = (Button)this.Controls[x * gridAlto + y];
 
-                    // Si la moto está en el nodo
+                    // Si la moto del jugador está en el nodo
                     if (jugadorMoto.Cabeza == nodo)
                     {
-                        btn.BackColor = System.Drawing.Color.Red;  // Color para la cabeza de la moto
+                        btn.BackColor = System.Drawing.Color.Red;
                     }
                     else if (jugadorMoto.Estela.Contains(nodo))
                     {
-                        btn.BackColor = System.Drawing.Color.Blue;  // Color para la estela de la moto
+                        btn.BackColor = System.Drawing.Color.Blue;
+                    }
+                    else if (bots.Any(b => b.Cabeza == nodo))
+                    {
+                        btn.BackColor = System.Drawing.Color.Green;  // Color para la cabeza del bot
+                    }
+                    else if (bots.Any(b => b.Estela.Contains(nodo)))
+                    {
+                        btn.BackColor = System.Drawing.Color.Red;  // Color para la estela del bot
                     }
                     else
                     {
-                        // Iterar sobre todos los ítems para verificar si hay uno en este nodo
+                        // Verificar si hay ítems en el nodo
                         bool nodoTieneItem = false;
                         foreach (var item in colaDeItems.ObtenerTodosLosItems())
                         {
                             if (item.Posicion == nodo)
                             {
                                 nodoTieneItem = true;
-                                // Asignar el color adecuado dependiendo del tipo de ítem
                                 switch (item.Tipo)
                                 {
                                     case "CeldaCombustible":
-                                        btn.BackColor = System.Drawing.Color.Yellow;  // Amarillo para el combustible
+                                        btn.BackColor = System.Drawing.Color.Yellow;
                                         break;
                                     case "CrecimientoEstela":
-                                        btn.BackColor = System.Drawing.Color.Cyan;  // Celeste para el crecimiento de estela
+                                        btn.BackColor = System.Drawing.Color.Cyan;
                                         break;
                                     case "Bomba":
-                                        btn.BackColor = System.Drawing.Color.Black;  // Negro para las bombas
+                                        btn.BackColor = System.Drawing.Color.Black;
                                         break;
                                 }
-                                break;  // Salir del bucle una vez que se encuentra el ítem
+                                break;
                             }
                         }
 
-                        // Si no hay ítems, marcar el nodo como vacío
                         if (!nodoTieneItem)
                         {
-                            btn.BackColor = System.Drawing.Color.White;  // Color para los nodos vacíos
+                            btn.BackColor = System.Drawing.Color.White;  // Nodo vacío
                         }
                     }
                 }
@@ -201,11 +223,16 @@ namespace TronGame
 
 
 
+
         // Lógica del temporizador para mover la moto
         private void movimientoTimer_Tick(object sender, EventArgs e)
         {
-            Nodo nuevoNodo = ObtenerNuevoNodo(jugadorMoto.Cabeza, direccionActual);  // Obtener el nodo adyacente basado en la dirección
-            Console.WriteLine($"Intentando mover la moto a [{nuevoNodo?.X}, {nuevoNodo?.Y}]");
+            List<Moto> todasLasMotos = new List<Moto> { jugadorMoto };
+            todasLasMotos.AddRange(bots);
+
+            // Obtener el nodo hacia el cual se moverá el jugador
+            Nodo nuevoNodoJugador = ObtenerNuevoNodo(jugadorMoto.Cabeza, direccionActual);
+            Console.WriteLine($"Intentando mover la moto a [{nuevoNodoJugador?.X}, {nuevoNodoJugador?.Y}]"); // Para depuración
 
             // Verificar si la moto tiene combustible
             if (jugadorMoto.Combustible <= 0)
@@ -217,7 +244,7 @@ namespace TronGame
             }
 
             // Verificar colisión con pared
-            if (colisiones.VerificarColisionPared(nuevoNodo))
+            if (colisiones.VerificarColisionPared(nuevoNodoJugador))
             {
                 movimientoTimer.Stop();
                 Console.WriteLine("La moto ha chocado con una pared y ha muerto.");
@@ -225,8 +252,16 @@ namespace TronGame
                 return; // Detener el juego
             }
 
+            // Verificar colisiones del jugador con otras motos
+            if (colisiones.VerificarColisionConOtraMoto(nuevoNodoJugador, todasLasMotos, jugadorMoto))
+            {
+                movimientoTimer.Stop();
+                MessageBox.Show("Has colisionado con otra moto y has muerto.", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return; // Detener el juego
+            }
+
             // Verificar colisión con la estela (excluyendo los ítems)
-            if (colisiones.VerificarColisionEstela(nuevoNodo, colaDeItems.ObtenerTodosLosItems()))
+            if (colisiones.VerificarColisionEstela(nuevoNodoJugador, colaDeItems.ObtenerTodosLosItems()))
             {
                 movimientoTimer.Stop();
                 Console.WriteLine("La moto ha chocado con su propia estela y ha muerto.");
@@ -234,14 +269,81 @@ namespace TronGame
                 return; // Detener el juego
             }
 
-            // Verificar colisión con los ítems antes de mover la moto
-            VerificarColisionConItem();  // Aquí se libera el nodo ocupado por un ítem
+            // Crear una lista temporal para almacenar los bots muertos
+            List<Bot> botsMuertos = new List<Bot>();
+
+            // Mover cada bot
+            foreach (var bot in bots)
+            {
+                if (!bot.EstaMuerto())
+                {
+                    Nodo nuevoNodoBot = ObtenerNuevoNodo(bot.Cabeza, (Direccion)random.Next(0, 4));
+
+                    // Verificar colisiones de los bots con otras motos
+                    if (colisiones.VerificarColisionConOtraMoto(nuevoNodoBot, todasLasMotos, bot))
+                    {
+                        botsMuertos.Add(bot);  // Marcar el bot como muerto
+                        continue;  // Pasar al siguiente bot
+                    }
+
+                    bot.MoverAleatoriamente(colaDeItems.ObtenerTodosLosItems());
+                    bot.VerificarColisionConItems(colaDeItems.ObtenerTodosLosItems(), colaDeItems);
+                }
+                else
+                {
+                    botsMuertos.Add(bot);  // Si el bot ha muerto, eliminarlo
+                }
+            }
+
+            // Eliminar bots muertos
+            foreach (var botMuerto in botsMuertos)
+            {
+                EliminarBot(botMuerto);
+            }
+
+            // Verificar si todos los bots han muerto
+            if (bots.Count == 0)
+            {
+                movimientoTimer.Stop();
+                MessageBox.Show("¡Felicidades! Has ganado el juego, todos los bots han sido eliminados.", "Ganador", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return; // Detener el juego
+            }
+
+            // Verificar colisión del jugador con los ítems
+            jugadorMoto.VerificarColisionConItems(colaDeItems.ObtenerTodosLosItems(), colaDeItems);
 
             // Mover la moto en la dirección actual pasando la lista de ítems
             jugadorMoto.Mover(direccionActual, colaDeItems.ObtenerTodosLosItems());
 
             // Actualizar la visualización del grid después del movimiento
             ActualizarVisualizacionGrid();
+        }
+
+
+
+
+        private void EliminarBot(Bot bot)
+        {
+            foreach (var nodo in bot.Estela)
+            {
+                nodo.Ocupado = false;  // Liberar los nodos de la estela del bot
+            }
+            bots.Remove(bot);  // Remover el bot de la lista
+        }
+        private void VerificarColisionConItemBot(Bot bot)
+        {
+            List<Item> items = colaDeItems.ObtenerTodosLosItems();
+
+            foreach (var itemColisionado in items)
+            {
+                if (bot.Cabeza == itemColisionado.Posicion)
+                {
+                    itemColisionado.Remover();  // Liberar el nodo del ítem
+                    colaDeItems.Desencolar();  // Eliminar el ítem de la cola
+                    itemColisionado.AplicarEfecto(bot);  // Aplicar el efecto del ítem al bot
+                    break;
+                }
+            }
         }
 
 

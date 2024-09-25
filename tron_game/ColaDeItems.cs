@@ -9,16 +9,15 @@ namespace tron_game
 
     public class ColaDeItems
     {
-        private Nodo primero;  // Nodo al frente de la cola
-        private Nodo ultimo;   // Nodo al final de la cola
+        private Nodo primero;
+        private Nodo ultimo;
 
         public bool EstaVacia => primero == null;
 
         // Encolar un ítem
         public void Encolar(Item item)
         {
-            Nodo nuevoNodo = new Nodo(item.Posicion.X, item.Posicion.Y) { Item = item };  // Usamos la posición y agregamos el ítem al nodo
-
+            Nodo nuevoNodo = new Nodo(item.Posicion.X, item.Posicion.Y) { Item = item };
             if (EstaVacia)
             {
                 primero = nuevoNodo;
@@ -26,37 +25,27 @@ namespace tron_game
             }
             else
             {
-                ultimo.NodoDerecha = nuevoNodo;  // El último nodo apunta al nuevo nodo
-                ultimo = nuevoNodo;  // Ahora el último nodo es el nuevo nodo
+                ultimo.NodoDerecha = nuevoNodo;
+                ultimo = nuevoNodo;
             }
         }
-
 
         // Desencolar un ítem
-        public Item Desencolar()
+        public void Desencolar()
         {
             if (EstaVacia)
             {
                 throw new InvalidOperationException("La cola está vacía.");
             }
 
-            Item item = primero.Item;  // Obtener el ítem del nodo
             primero = primero.NodoDerecha;  // Mover el puntero de "primero" al siguiente nodo
-            return item;
-        }
-
-        // Obtener el ítem al frente de la cola sin desencolarlo
-        public Item Peek()
-        {
-            if (EstaVacia)
+            if (primero == null)
             {
-                throw new InvalidOperationException("La cola está vacía.");
+                ultimo = null;  // Si la cola está vacía, reiniciar el último nodo
             }
-
-            return primero.Item;
         }
 
-        // Obtener todos los ítems en la cola (para el método de colisiones)
+        // Obtener todos los ítems
         public List<Item> ObtenerTodosLosItems()
         {
             List<Item> items = new List<Item>();
@@ -70,7 +59,7 @@ namespace tron_game
 
             return items;
         }
-
     }
+
 
 }

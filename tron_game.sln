@@ -6,9 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tron_game", "tron_game\tron_game.csproj", "{1767FB1D-CD58-4C34-8D90-36917BDF6D28}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{7474EC25-453C-4DA2-B81B-F3125C9F940B}"
-	ProjectSection(SolutionItems) = preProject
-		tron_game\Item.cs = tron_game\Item.cs
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
